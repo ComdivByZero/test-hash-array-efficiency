@@ -21,3 +21,9 @@ struct CharsEqual {
 };
 
 typedef std::unordered_map<const char *, int, CharsHash, CharsEqual> RArray;
+
+static RArray* newArray(int size) {
+	RArray *a = new RArray();
+	a->reserve(size);
+	return a;
+}

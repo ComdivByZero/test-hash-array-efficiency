@@ -5,7 +5,7 @@
 #include "arrdef.h"
 
 extern Array* arrCreate(int count) {
-	return (Array *)(new RArray());
+	return (Array *)(newArray(count));
 }
 
 extern void arrRelease(Array **a) {

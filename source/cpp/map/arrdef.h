@@ -7,3 +7,7 @@ struct Cmp {
 };
 
 typedef std::map<const char *, int, Cmp> RArray;
+
+static RArray* newArray(int size) {
+	return new RArray();
+}
