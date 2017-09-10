@@ -1,7 +1,7 @@
 CPPC:=g++
-OPTS:=-O3
+OPTS:=-O3 -flto
 
-all: wordfilter words.data c.test cpp.test cpp.uo.test
+all: wordfilter words.data c.test hardcode.test cpp.test cpp.uo.test
 
 wordfilter:
 	mkdir -p binary
@@ -16,6 +16,10 @@ words.data:
 c.test:
 	mkdir -p binary
 	$(CC_CALL) $(OPTS) -o binary/$@
+
+hardcode.test:
+	mkdir -p binary
+	$(CC) source/*.c source/hardcode/*.c -Isource -Isource/c $(OPTS) -o binary/$@
 
 CPPC_CALL:=$(CPPC) $(OPTS) source/*.c source/cpp/*.c* -Isource -Isource/cpp
 
